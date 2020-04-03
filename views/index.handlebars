@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="jumbotron col" align="center">
+        <h1>Burger Mania!</h1>
+    </div>
+</div>
+<div class="row justify-content-md-center">
+    <div class='col-sm-9 col-md-5 burgCols pt-2' id='left-col' align='center'>
+        <h2>Burger Menu</h2>
+
+
+        <ul>
+            {{#each burgers}}
+            {{#unless eaten}}
+            {{> burger-delete devoured=true}}
+            {{/unless}}
+            {{/each}}
+        </ul>
+    </div>
+    <div class="col-1 p-0 "></div>
+
+    <div class='col-sm-9 col-md-5  burgCols pt-2' id='right-col' align="center">
+        <h2>Burgers Devoured</h2>
+
+        <ul>
+            {{#each burgers}}
+            {{#if eaten}}
+            {{> burger-delete devoured=false}}
+            {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+</div>
+<div class="row justify-content-md-center pt-5">
+    <div class="col-sm-5 burgCols pt-2 pb-2" align="center">
+        <h2>Build-Your-Own Burger</h2>
+        <form class="create-form">
+
+            <div class="form-group">
+                <label for="newone">Burger Name:</label>
+                <input type="text" id="newone" name="name">
+            </div>
+
+            <div class="form-group">
+                <label for="eaten">Already Devoured</label><br>
+                <input type="radio" name="devoured" value="1" checked> Devoured!<br>
+                <input type="radio" name="devoured" value="0"> Must eat. Chomp, chomp.
+            </div>
+
+            <button type="submit">Add Burger</button>
+        </form>
+    </div>
+</div>
